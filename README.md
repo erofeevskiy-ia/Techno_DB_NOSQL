@@ -1,4 +1,4 @@
-#Techno_DB_NOSQL
+# Techno_DB_NOSQL
 ## Социальный Граф
 
 ## Состав команды

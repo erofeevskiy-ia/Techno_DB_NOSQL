@@ -1,4 +1,4 @@
-h1 Социальный граф
+# Социальный граф
 -------
 ## Функционал
 1. Загрузка графа
@@ -9,5 +9,5 @@ h1 Социальный граф
 
 ### Ссылки
 [Социальный граф(Wiki)](https://en.wikipedia.org/wiki/Social_graph)
-[Как мы храним и анализируем большой социальный граф / Максим Бартенев (Норси транс)] (https://www.youtube.com/watch?v=cL5PvX2JtGc)
-[Использование социального графа одноклассников в Target Mail.Ru.] (https://www.youtube.com/watch?v=5F8cSGTPOFo)
+[Как мы храним и анализируем большой социальный граф / Максим Бартенев (Норси транс)](https://www.youtube.com/watch?v=cL5PvX2JtGc)
+[Использование социального графа одноклассников в Target Mail.Ru.](https://www.youtube.com/watch?v=5F8cSGTPOFo)
