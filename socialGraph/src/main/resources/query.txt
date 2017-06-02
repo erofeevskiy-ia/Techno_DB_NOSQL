@@ -1,0 +1,105 @@
+// какие видео посоветовать пользователю, основываясь на том, что он уже посмотрел
+
+SELECT name 
+FROM video
+WHERE id in (
+	SELECT video_id_2 as video_id
+	FROM `like`
+	WHERE video_id_1 in (
+		SELECT DISTINCT video_id
+		FROM view
+		WHERE user_id = 5
+	)
+	
+	UNION
+	
+	SELECT video_id_1 as video_id
+	FROM `like`
+	WHERE video_id_2 in (
+		SELECT DISTINCT video_id
+		FROM view
+		WHERE user_id = 5
+	)
+);
+
+
+
+
+
+
+// какие видео посоветовать пользователю, основываясь на том, что посмотрели его друзья
+
+
+SELECT name 
+FROM video
+WHERE id in (
+	SELECT DISTINCT video_id
+	FROM view
+	WHERE user_id in (
+		SELECT user_id_1
+		FROM friend
+		WHERE user_id_2 = 5
+		
+		UNION
+	
+		SELECT user_id_2
+		FROM friend
+		WHERE user_id_1 = 5
+	)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
