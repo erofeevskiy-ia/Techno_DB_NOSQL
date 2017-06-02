@@ -1,0 +1,113 @@
+DROP DATABASE socialGraph;
+CREATE DATABASE socialGraph;
+USE socialGraph;
+CREATE TABLE IF NOT EXISTS
+    `user` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(50) NOT NULL UNIQUE,
+        PRIMARY KEY(`id`)
+    );
+CREATE TABLE IF NOT EXISTS
+    `video` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(100) NOT NULL,
+        PRIMARY KEY(`id`)
+    );
+CREATE TABLE IF NOT EXISTS
+    `view` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `user_id` INT NOT NULL,
+        `video_id` INT NOT NULL,
+        PRIMARY KEY(`id`),
+        FOREIGN KEY (user_id) REFERENCES user(id),
+        FOREIGN KEY (video_id) REFERENCES video(id)
+    );
+CREATE TABLE IF NOT EXISTS
+    `friend` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `user_id_1` INT NOT NULL,
+        `user_id_2` INT NOT NULL,
+        PRIMARY KEY(`id`),
+        FOREIGN KEY (user_id_1) REFERENCES user(id),
+        FOREIGN KEY (user_id_2) REFERENCES user(id)
+    );
+CREATE TABLE IF NOT EXISTS
+    `like` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `video_id_1` INT NOT NULL,
+        `video_id_2` INT NOT NULL,
+        PRIMARY KEY(`id`),
+        FOREIGN KEY (video_id_1) REFERENCES video(id),
+        FOREIGN KEY (video_id_2) REFERENCES video(id)
+    );
+INSERT INTO user (id, name)
+VALUES ('1','Aaren'),
+('2','Aarika'),
+('3','Abagael'),
+('4','Abagail'),
+('5','Abbe'),
+('6','Abbey'),
+('7','Abbi'),
+('8','Abbie'),
+('9','Abby'),
+('10','Abbye');INSERT INTO video (id, name)
+VALUES ('1','Aaren'),
+('2','Aarika'),
+('3','Abagael'),
+('4','Abagail'),
+('5','Abbe'),
+('6','Abbey'),
+('7','Abbi'),
+('8','Abbie'),
+('9','Abby'),
+('10','Abbye');INSERT INTO view (id, user_id, video_id)
+VALUES ('1','1','0'),
+('2','1','9'),
+('3','1','5'),
+('4','1','2'),
+('5','1','9'),
+('6','2','5'),
+('7','2','9'),
+('8','2','4'),
+('9','2','0'),
+('10','2','5'),
+('11','3','6'),
+('12','3','4'),
+('13','3','8'),
+('14','3','1'),
+('15','3','9'),
+('16','4','0'),
+('17','4','5'),
+('18','4','1'),
+('19','4','4'),
+('20','4','2'),
+('21','5','0'),
+('22','5','5'),
+('23','5','8'),
+('24','5','8'),
+('25','5','4'),
+('26','6','2'),
+('27','6','9'),
+('28','6','5'),
+('29','6','8'),
+('30','6','1'),
+('31','7','3'),
+('32','7','4'),
+('33','7','9'),
+('34','7','7'),
+('35','7','9'),
+('36','8','2'),
+('37','8','6'),
+('38','8','9'),
+('39','8','5'),
+('40','8','4'),
+('41','9','1'),
+('42','9','6'),
+('43','9','8'),
+('44','9','9'),
+('45','9','1'),
+('46','10','3'),
+('47','10','5'),
+('48','10','6'),
+('49','10','2'),
+('50','10','1');
